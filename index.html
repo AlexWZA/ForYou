@@ -4,38 +4,26 @@
   <meta charset="UTF-8" />
   <title>Be My Valentine 💖</title>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    emailjs.init("RhXbtQWtt0wuoDRoT"); // ✅ Your public key
+    emailjs.init("RhXbtQWtt0wuoDRoT");
   </script>
-
 </head>
 <body>
 
-  <div style="text-align:center; margin-top:100px;">
+  <div class="container">
     <h1>Will you be my Valentine? 💘</h1>
-    <button id="yes" style="font-size:24px; padding:15px 30px; cursor:pointer;">YES 💖</button>
+    <div class="buttons">
+      <button id="yes">YES 💖</button>
+      <button id="no">NO 😈</button>
+    </div>
   </div>
 
-  <script>
-    const yesButton = document.getElementById("yes");
-
-    yesButton.addEventListener("click", () => {
-      emailjs.send(
-        "service_r9rb4tl",   // Your Service ID
-        "template_d7gy4rc",  // Your Template ID
-        {}                    // Empty object because your template has no variables
-      )
-      .then(() => {
-        alert("love has been sent! 🎉");
-      })
-      .catch((err) => {
-        console.error("EmailJS error:", err);
-        alert("Email failed. Check console for details.");
-      });
-    });
-  </script>
-
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>

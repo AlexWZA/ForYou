@@ -10,16 +10,16 @@ function moveNoButton() {
   const x = Math.random() * (window.innerWidth - btnWidth);
   const y = Math.random() * (window.innerHeight - btnHeight);
 
-  noButton.style.position = "absolute"; // only now make it absolute
+  noButton.style.position = "absolute";
   noButton.style.left = `${x}px`;
   noButton.style.top = `${y}px`;
 }
 
-// Make NO move immediately on hover or touch
+// Move NO immediately on hover or touch
 noButton.addEventListener("mouseenter", moveNoButton);
 noButton.addEventListener("touchstart", moveNoButton);
 
-// Extra: move NO if cursor gets close (makes it hard to click)
+// Extra: move NO if cursor gets close
 document.addEventListener("mousemove", (e) => {
   const rect = noButton.getBoundingClientRect();
   const centerX = rect.left + rect.width / 2;
@@ -42,22 +42,22 @@ yesButton.addEventListener("click", () => {
     timeStyle: "medium"
   });
 
-  // Send email via EmailJS with the time variable
+  // ✅ Send email via EmailJS with the time variable
   emailjs.send(
-    "service_r9rb4tl",   // Your Service ID
-    "template_d7gy4rc",  // Your Template ID
-    { time: sastTime },   // Must match {{time}} in your template
-    "RhXbtQWtt0wuoDRoT"  // Your public key
+    "service_r9rb4tl",   // Service ID
+    "template_d7gy4rc",  // Template ID
+    { time: sastTime },   // MUST match {{time}} in your template
+    "RhXbtQWtt0wuoDRoT"  // Public key
   ).then(
     () => {
-      // Show celebration screen
+      // Celebration screen
       document.body.innerHTML = `
         <div style="
           height:100vh;
           display:flex;
           justify-content:center;
           align-items:center;
-          font-family:Arial;
+          font-family:Arial, sans-serif;
           background:linear-gradient(135deg,#ff4d6d,#ffb3c6);
           color:white;
           text-align:center;

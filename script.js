@@ -45,6 +45,17 @@ yesButton.addEventListener("click", () => {
   document.getElementById("overlayText").style.opacity = "1";
 }, 10000);
 
+video.addEventListener("error", () => {
+  alert("Loading something special, please give it a second ❤️");
+});
+
+video.addEventListener("waiting", () => {
+  video.insertAdjacentHTML(
+    "beforebegin",
+    "<p style='text-align:center;color:#fff;'>Loading something special… 💖</p>"
+  );
+});
+
   // Send email
   emailjs.send(
     "service_r9rb4tl",

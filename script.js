@@ -41,15 +41,6 @@ yesButton.addEventListener("click", () => {
     timeStyle: "medium"
   });
   
-  setTimeout(() => {
-  document.getElementById("overlayText").style.opacity = "1";
-}, 10000);
-
-video.addEventListener("error", () => {
-  alert("Loading something special, please give it a second ❤️");
-});
-
-
 
   // Send email
   emailjs.send(
@@ -70,3 +61,4 @@ video.addEventListener("error", () => {
     console.error(error);
   });
 });
+

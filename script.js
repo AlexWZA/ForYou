@@ -31,6 +31,10 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
 // YES button logic
 yesButton.addEventListener("click", () => {
   // Get South African time

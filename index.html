@@ -16,22 +16,22 @@
 
 <div class="options">
 
-  <div class="option" onclick="location.href='valentine.html'">
+	<div class="option" onclick="notifyClick('Valentine', 'valentine.html')">
     Valentine's
   </div>
 
-  <div class="option" onclick="location.href='birthday.html'">
+  <div class="option" onclick="notifyClick('Birthday', 'birthday.html')">
     Happy Birthday 
   </div>
   
-    <div class="option" onclick="location.href='Anni.html'">
+    <div class="option" onclick="notifyClick('Happy Anniversary', 'Anni.html')">
     Happy Anniversary 
   </div>
   
 </div>
 
 <div class = "heart">
-	<a href="flow.html">
+	<a href="#" onclick="notifyClick('Flow Heart', 'flow.html'); return false;">
 <svg viewBox="0 0 600 552" onclick="flow.html" style="width:200px; height:auto;">
   <path d="M300,107.77C284.68,55.67,239.76,0,162.31,0,64.83,0,0,82.08,0,171.71c0,.48,0,.95,0,1.43-.52,19.5,0,217.94,299.87,379.69v0l0,0,.05,0,0,0,0,0v0C600,391.08,600.48,192.64,600,173.14c0-.48,0-.95,0-1.43C600,82.08,535.17,0,437.69,0,360.24,0,315.32,55.67,300,107.77" fill="#ee5282"/>
 </svg>
@@ -44,8 +44,8 @@
 
 <div class="options">
 
-  <div class="option" onclick="location.href = 'projectgallery.html'">
-    Project
+<div class="option" onclick="notifyClick('Project', 'projectgallery.html')">
+	Project 
   </div>
 
 </div>
@@ -62,6 +62,31 @@
       musicStarted = true;
     }
   }, { once: true }); // triggers only once
+</script>
+
+<script>
+async function notifyClick(pageName, destination) {
+    try {
+        await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                access_key: "8a5453d4-39a8-44d1-ae0c-4b2eee513c56",
+                subject: "Website Link Clicked",
+                name: "Website Tracker",
+                email: "tracker@example.com",
+                message: pageName + " was clicked.\n\nTime: " + new Date().toLocaleString()
+            })
+        });
+    } catch (err) {
+        console.error(err);
+    }
+
+    window.location.href = destination;
+}
 </script>
 
 
